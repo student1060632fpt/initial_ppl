@@ -6,11 +6,11 @@ class LexerSuite(unittest.TestCase):
 
     def test1(self):
         """test 1"""
-        input = "192.168.0.1"
-        expect = "192.168.0.1,<EOF>"
+        input = "21A"
+        expect = "21A,<EOF>"
         self.assertTrue(TestLexer.test(input, expect, 101))
 
-    # def test_complex_string(self):
-    #     """test complex string"""
-    #     self.assertTrue(TestLexer.test("'isn''t'","'isn''t',<EOF>",102))
+    def test_complex_string(self):
+        """test complex string"""
+        self.assertTrue(TestLexer.test("3dC","3dC,<EOF>",102))
     
