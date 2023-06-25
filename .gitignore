@@ -1,4 +1,3 @@
 target/*
-src/main/bkool/parser/.antlr/*
-src/main/bkool/parser/lexer/.antlr/*
-src/main/bkool/parser/__pycache__/*
+**/.antlr/*
+**/__pycache__/*
