@@ -1,4 +1,4 @@
-grammar BKOOL_p3; // do quy định, quy định răng để rứa
+grammar BKOOL_b3; // do quy định, quy định răng để rứa
 
 @lexer::header {
 from lexererr import *

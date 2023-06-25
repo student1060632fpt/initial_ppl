@@ -8,7 +8,7 @@ null
 
 token symbolic names:
 null
-BKNETID
+STRINGLIT
 WS
 ERROR_CHAR
 UNCLOSE_STRING

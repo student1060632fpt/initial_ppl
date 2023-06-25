@@ -11,34 +11,23 @@ options {
 program: ;
 /*
 -Đề:
-Anh:	Use ANTLR to write regular expressions describing Pascal strings are made up of 
-a sequence of characters between single quotes: 'string'. 
-The single quote itself can appear as two single quotes back to back in a string: 'isn''t'.
+Anh:	
 Vịt:
-Viết biểu thức chính quy:
-1. Kí tự nằm ở giữa 2 dấu nháy đơn -> không thể có lẻ dấu nháy đơn
-2. Nếu có dấu nháy đơn ở giữa phải có 2 dấu liên tục
-*/
+Khi nhập học tại trường Đại học Bách Khoa, sinh viên được yêu cầu đặt một tên tài khoản gọi là BKNetID, gồm ba thành phần theo thứ tự: tên, họ và chuỗi tự chọn. Giữa tên và họ, sinh viên phải đặt một dấu chấm (.). Tên và họ là chuỗi chỉ bao gồm các ký tự chữ thường với độ dài tối thiểu là 1. Chuỗi tự chọn là một chuỗi có chiều dài từ 1 đến 5 kí tự bao gồm chữ thường, ký tự số, dấu chấm, dấu gạch dưới nhưng không được kết thúc bằng dấu chấm.
+
+Ví dụ: duy.tran2903, duy.tran.3_12 là các chuỗi BKNetID hợp lệ nhưng duy.tran2903. hoặc duy2.tran2903 là BKNetID không hợp lệ.
+
+Hãy sử dụng ANTLR để viết biểu thức chính quy cho BKNetID nói trên. Sinh viên phải sử dụng fragment để nhận trọn điểm.*/
 //-------Start---------
 
 /*
-để bắt được kí tự dấu nháy đơn ta có 2 cách viết:
-1. '\''
-2. sử dụng liệt kê, chả cần kẹp gì hết
-Có 2 cách viết ngoại trừ dấu nháy đơn:
-1. ~[']
-2. ~('\'') cách này chỉ còn dùng ở phiên bản cũ
-
-chú ý: 
-1. [''] viết kiểu này là tập hợp 2 dấu nháy đơn-> chỉ bắt 1 dấu thui đó -> nên phải viết tách ra singQ 2 lần
-2. việc thêm ? vào * thành *? khác nhau, chỉ xảy ra trong antlr
-	a. * không thôi thì sẽ bắt từ dấu nháy đầu tiên tới dấu nháy cuối cùng, tức cố gắng bắt dài nhất có thể longest possible, tính tham lam : greedy
-	b. *? bắt dấu nháy đầu tiên tới dấu nháy gần nhất, rồi từ dấu nháy sau đó tới dấu nháy cuối cùng, ko tham nữa: non greedy
-3. non-greedy dùng cho comment, vì nó ko tham lam
 */
-STRINGLIT: SING_Q (~['] | SING_Q SING_Q)* SING_Q;
+BKNETID : HO_TEN ('.') HO_TEN NAM_LAN CUOI ;
 
-fragment SING_Q: ['];
+fragment NAM_LAN: CHUOI CHUOI? CHUOI? CHUOI? CHUOI?;
+fragment HO_TEN: [a-z]+;
+fragment CHUOI: [a-z0-9._];
+fragment CUOI: [a-z0-9_];
 
 //-------End---------
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
