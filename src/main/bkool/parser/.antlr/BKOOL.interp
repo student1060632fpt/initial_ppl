@@ -8,7 +8,7 @@ null
 
 token symbolic names:
 null
-REAL
+STRINGLIT
 WS
 ERROR_CHAR
 UNCLOSE_STRING

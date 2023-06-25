@@ -11,22 +11,29 @@ options {
 program: ;
 /*
 -Đề:
-Anh:	
+Anh:	Use ANTLR to write regular expressions describing Pascal strings are made up of 
+a sequence of characters between single quotes: 'string'. 
+The single quote itself can appear as two single quotes back to back in a string: 'isn''t'.
 Vịt:
 Viết biểu thức chính quy:
 1. Kí tự nằm ở giữa 2 dấu nháy đơn -> không thể có lẻ dấu nháy đơn
 2. Nếu có dấu nháy đơn ở giữa phải có 2 dấu liên tục
 */
 //-------Start---------
-// có thể là dấu chấm động hoặc 0
-REAL: INT_PART DEC_PART | INT_PART DEC_PART? EX_PART ;
 
-//phần nguyên
-fragment INT_PART: [0-9]+;
-//Phần thập phần
-fragment DEC_PART: '.' INT_PART;
-// exponent part
-fragment EX_PART: [eE] [-+]? INT_PART;
+/*
+để bắt được kí tự dấu nháy đơn ta có 2 cách viết:
+1. '\''
+2. sử dụng liệt kê, chả cần kẹp gì hết
+Có 2 cách viết ngoại trừ dấu nháy đơn:
+1. ~[']
+2. ~('\'') cách này chỉ còn dùng ở phiên bản cũ
+
+chú ý: [''] viết kiểu này là tập hợp 2 dấu nháy đơn-> chỉ bắt 1 dấu thui đó
+*/
+STRINGLIT: SING_Q (~['] | SING_Q SING_Q)* SING_Q;
+
+fragment SING_Q: ['];
 
 //-------End---------
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
