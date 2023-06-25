@@ -5,12 +5,9 @@ class LexerSuite(unittest.TestCase):
       
     def test1(self):
         """test simple string"""
-        input = "abc"
-        expect = "abc,<EOF>"
-        self.assertTrue(TestLexer.test(input,expect,101))
-        # hàm assertTrue để test 
-
-    # def test_complex_string(self):
-    #     """test complex string"""
-    #     self.assertTrue(TestLexer.test("'isn''t'","'isn''t',<EOF>",102))
-    
+        testfile = [101,102,103]
+        input = "1.0"
+        expect = "1.0,<EOF>"
+        for item in testfile:
+            print(item)
+            self.assertTrue(TestLexer.test(input,expect,item))
