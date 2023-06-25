@@ -6,8 +6,8 @@ class LexerSuite(unittest.TestCase):
 
     def test1(self):
         """test 1"""
-        input = "1_000_000"
-        expect = "1000000,<EOF>"
+        input = "192.168.0.1"
+        expect = "192.168.0.1,<EOF>"
         self.assertTrue(TestLexer.test(input, expect, 101))
 
     # def test_complex_string(self):

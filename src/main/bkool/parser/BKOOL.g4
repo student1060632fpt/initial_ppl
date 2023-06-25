@@ -11,31 +11,18 @@ options {
 program: ;
 /*
 -Đề:
-Anh:	Use ANTLR to write regular expressions describing PHP's integers (in decimal) which is a sequence of digits (0-9) starting with a non-zero digit or only a zero. 
-Integer literals may contain underscores (_) between digits, 
-for better readability of literals but these underscores are removed by PHP's scanner.
+Anh:	Use ANTLR to write regular expressions describing a valid IPv4 address. It consists of exact 4 strings, whose length is from 1 to 3, of digits (0-9) but not starting with 0 unless the string is 0. The strings are separated by one dot (.). 
 Vịt:
 Dùng biểu thức chính quy
-- php: integer là 1 chuỗi kí tự
-	+từ 0-9
-	+kí tự bắt đầu != 0
-	+TH1: hoặc chỉ có 1 số 0 mà thôi 
-	- integer literal có thể chứa _ ở giữa digit -> tức là sau _ phải có digit
+- mô tả địa chỉ IPv4
+- 4 chuỗi: 
+
 */
 //-------Start---------
+IP: PART '.' PART '.' PART '.' PART;
 
-INTLIT: ONLY_ZERO
-| START_NO_ZERO NUMBER ('_' [0-9]+)* {self.text = self.text.replace("_","")};
-
-//Cho trường hợp chỉ có 1 số 0 mà thôi
-fragment ONLY_ZERO: '0';
-//và phần còn lại
-fragment NUMBER: [0-9]*;
-fragment START_NO_ZERO: [1-9];
-
-
-
-
+fragment PART :'0' | NUM;
+fragment NUM: [1-9] [0-9]? [0-9]?;
 
 //-------End---------
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
