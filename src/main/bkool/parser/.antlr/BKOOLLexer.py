@@ -1,4 +1,4 @@
-# Generated from f:\\BACH_KINH_XAY\\223\\ppl\\draft\\initial\\src\\main\\bkool\\parser\\BKOOL.g4 by ANTLR 4.9.2
+# Generated from f:\\BACH_KINH_XAY\\223\\ppl\\draft\\initial\\src\\main\\bkool\\parser\\BKOOL copy.g4 by ANTLR 4.9.2
 from antlr4 import *
 from io import StringIO
 import sys
@@ -58,7 +58,7 @@ class BKOOLLexer(Lexer):
     ruleNames = [ "STRINGLIT", "SING_Q", "WS", "ERROR_CHAR", "UNCLOSE_STRING", 
                   "ILLEGAL_ESCAPE" ]
 
-    grammarFileName = "BKOOL.g4"
+    grammarFileName = "BKOOL copy.g4"
 
     def __init__(self, input=None, output:TextIO = sys.stdout):
         super().__init__(input, output)

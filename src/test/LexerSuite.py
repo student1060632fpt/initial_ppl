@@ -10,8 +10,7 @@ class LexerSuite(unittest.TestCase):
         expect = "'Yanxi Palace - 2018',<EOF>"
         self.assertTrue(TestLexer.test(input, expect, 101))
 
-    # def test2(self):
-    #     """test 2"""
-    #     input = ".01"
-    #     expect = "Error Token ."
-    #     self.assertTrue(TestLexer.test(input, expect, 102))
+    def test_complex_string(self):
+        """test complex string"""
+        self.assertTrue(TestLexer.test("'isn''t'","'isn''t',<EOF>",102))
+    
