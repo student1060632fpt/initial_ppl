@@ -5,6 +5,7 @@ import subprocess
 import unittest
 import shutil
 import platform
+# thằng kia bảo cmt cái dòng ở dưới là chạy đc 
 from antlr4 import *
 
 for path in ['./test/', './main/bkool/parser/', './main/bkool/utils/', './main/bkool/astgen/', './main/bkool/checker/', './main/bkool/codegen/']:

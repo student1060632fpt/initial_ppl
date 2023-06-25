@@ -1,4 +1,4 @@
-# Generated from main/bkool/parser/BKOOL.g4 by ANTLR 4.9.2
+# Generated from f:\\BACH_KINH_XAY\\223\\ppl\\draft\\initial\\src\\main\\bkool\\parser\\lexer\\BKOOL_b1.g4 by ANTLR 4.9.2
 # encoding: utf-8
 from antlr4 import *
 from io import StringIO
@@ -17,9 +17,9 @@ def serializedATN():
         return buf.getvalue()
 
 
-class BKOOLParser ( Parser ):
+class BKOOL_b1Parser ( Parser ):
 
-    grammarFileName = "BKOOL.g4"
+    grammarFileName = "BKOOL_b1.g4"
 
     atn = ATNDeserializer().deserialize(serializedATN())
 
@@ -61,20 +61,14 @@ class BKOOLParser ( Parser ):
 
 
         def getRuleIndex(self):
-            return BKOOLParser.RULE_program
-
-        def accept(self, visitor:ParseTreeVisitor):
-            if hasattr( visitor, "visitProgram" ):
-                return visitor.visitProgram(self)
-            else:
-                return visitor.visitChildren(self)
+            return BKOOL_b1Parser.RULE_program
 
 
 
 
     def program(self):
 
-        localctx = BKOOLParser.ProgramContext(self, self._ctx, self.state)
+        localctx = BKOOL_b1Parser.ProgramContext(self, self._ctx, self.state)
         self.enterRule(localctx, 0, self.RULE_program)
         try:
             self.enterOuterAlt(localctx, 1)

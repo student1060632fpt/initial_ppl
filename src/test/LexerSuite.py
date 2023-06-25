@@ -3,11 +3,14 @@ from TestUtils import TestLexer
 
 class LexerSuite(unittest.TestCase):
       
-    def test_simple_string(self):
+    def test1(self):
         """test simple string"""
-        self.assertTrue(TestLexer.test("'Yanxi Palace - 2018'","'Yanxi Palace - 2018',<EOF>",101))
+        input = "abc"
+        expect = "abc,<EOF>"
+        self.assertTrue(TestLexer.test(input,expect,101))
+        # hàm assertTrue để test 
 
-    def test_complex_string(self):
-        """test complex string"""
-        self.assertTrue(TestLexer.test("'isn''t'","'isn''t',<EOF>",102))
+    # def test_complex_string(self):
+    #     """test complex string"""
+    #     self.assertTrue(TestLexer.test("'isn''t'","'isn''t',<EOF>",102))
     
