@@ -1,3 +1,8 @@
 target/*
+.antlr/
+__pycache__/
 **/.antlr/*
 **/__pycache__/*
+src/main/bkool/parser/.antlr/BKOOL.interp
+.interp
+.tokens
