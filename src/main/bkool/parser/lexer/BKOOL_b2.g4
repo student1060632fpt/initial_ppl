@@ -24,10 +24,10 @@ REAL: INT_PART DEC_PART | INT_PART DEC_PART? EX_PART ;
 
 //phần nguyên
 fragment INT_PART: [0-9]+;
-//Phần thập phần
+//Phần thập phân
 fragment DEC_PART: '.' INT_PART;
 // exponent part
-fragment EX_PART: [eE] INT_PART;
+fragment EX_PART: [eE] [-+]? INT_PART;
 
 //-------End---------
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines

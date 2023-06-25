@@ -11,12 +11,11 @@ options {
 program: ;
 /*
 -Đề:
-Anh:	Pascal tokens For a number to be taken as "real" (or "floating point") format, it must either have a decimal point, or use scientific notation. For example, 1.0, 1e-12, 1.0e-12, 0.000000001 are all valid reals. At least one digit must exist on either side of a decimal point.
+Anh:	
 Vịt:
 Viết biểu thức chính quy:
-1. Sử dụng dấu chấm động *floating point*
-2. Sử dụng kí hiểu khoa học như chữ e
-3. Có ít nhất là 1 số nằm ở giữa 2 bên của dấu chấm động
+1. Kí tự nằm ở giữa 2 dấu nháy đơn -> không thể có lẻ dấu nháy đơn
+2. Nếu có dấu nháy đơn ở giữa phải có 2 dấu liên tục
 */
 //-------Start---------
 // có thể là dấu chấm động hoặc 0
@@ -27,7 +26,7 @@ fragment INT_PART: [0-9]+;
 //Phần thập phần
 fragment DEC_PART: '.' INT_PART;
 // exponent part
-fragment EX_PART: [eE] INT_PART;
+fragment EX_PART: [eE] [-+]? INT_PART;
 
 //-------End---------
 WS : [ \t\r\n]+ -> skip ; // skip spaces, tabs, newlines
