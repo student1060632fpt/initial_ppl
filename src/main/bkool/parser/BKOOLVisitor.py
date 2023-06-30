@@ -14,6 +14,16 @@ class BKOOLVisitor(ParseTreeVisitor):
         return self.visitChildren(ctx)
 
 
+    # Visit a parse tree produced by BKOOLParser#decls.
+    def visitDecls(self, ctx:BKOOLParser.DeclsContext):
+        return self.visitChildren(ctx)
+
+
+    # Visit a parse tree produced by BKOOLParser#decl.
+    def visitDecl(self, ctx:BKOOLParser.DeclContext):
+        return self.visitChildren(ctx)
+
+
     # Visit a parse tree produced by BKOOLParser#vardecl.
     def visitVardecl(self, ctx:BKOOLParser.VardeclContext):
         return self.visitChildren(ctx)
